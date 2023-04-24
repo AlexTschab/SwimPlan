@@ -1,31 +1,35 @@
-<h1>SwimPlan</h1>
-<p>Get your daily swim training</p>
-<div class="cards">
-<% @trainings.each do |training| %>
-  <div class= "card">
-    <h3><%= training.title %></h1>
-    <% training.blocs.each do |bloc| %>
-      <div class="bloc">
-        <div class="bloc-quantity">
-          <%= bloc.quantity %>
-        </div>
+<div class="container">
+  <h1>SwimPlan</h1>
+  <p>Get your daily swim training</p>
 
-        <div class="lines">
-          <% bloc.lines.each do |line| %>
-            <p>
-              <%= line.quantity %>
-              <%= line.meters %>
-            </p>
-          <% end %>
-        </div>
+  <div class="cards">
+  <% @trainings.each do |training| %>
+    <div class= "card">
+    <%= link_to training_path(training) do  %>
+      <h3><%= training.title %></h1>
+      <% end %>
+      <% training.blocs.each do |bloc| %>
+        <div class="bloc">
+          <div class="bloc-quantity">
+            <%= bloc.quantity %>
+          </div>
 
-      </div>
-    <% end %>
+          <div class="lines">
+            <% bloc.lines.each do |line| %>
+              <p>
+                <%= line.quantity %>
+                <%= line.meters %>
+              </p>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   </div>
-<% end %>
+
+  <%= link_to "New training", new_training_path %>
+  <%= link_to "about us", about_path %>
+
 </div>
-
-
-<%= link_to "New training", new_training_path %>
-
-<%= link_to "about us", about_path %>
