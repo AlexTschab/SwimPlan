@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+
+.cards {
+  display: flex;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr 1f;
+  grid-gap: 16px;
+}
+
+.bloc {
+  display: flex;
+}
+
+.card {
+  width: 300px;
+}
+
+.bloc-quantity{
+  margin-right: 20px;
+  margin-left: 20px;
+  align-self: center;
+}

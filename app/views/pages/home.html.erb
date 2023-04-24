@@ -1,5 +1,30 @@
 <h1>SwimPlan</h1>
 <p>Get your daily swim training</p>
+<div class="cards">
+<% @trainings.each do |training| %>
+  <div class= "card">
+    <h3><%= training.title %></h1>
+    <% training.blocs.each do |bloc| %>
+      <div class="bloc">
+        <div class="bloc-quantity">
+          <%= bloc.quantity %>
+        </div>
+
+        <div class="lines">
+          <% bloc.lines.each do |line| %>
+            <p>
+              <%= line.quantity %>
+              <%= line.meters %>
+            </p>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+<% end %>
+</div>
+
 
 <%= link_to "New training", new_training_path %>
 
