@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "about", to: "pages#about"
 
-  resources :trainings, only: [:show, :index, :new, :create] do
+  resources :trainings, only: [:show, :index, :new, :create, :destroy] do
     resources :blocs, only: [:show, :index, :new, :create] do
       resources :lines, only: [:show, :index, :new, :create]
     end
