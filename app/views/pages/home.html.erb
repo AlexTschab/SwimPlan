@@ -1,6 +1,37 @@
-<h1>SwimPlan</h1>
-<p>Get your daily swim training</p>
+<div class="container">
+  <h1>SwimPlan</h1>
+  <p>Get your daily swim training</p>
 
-<%= link_to "New training", new_training_path %>
+  <div class="cards">
+  <% @trainings.each do |training| %>
+    <div class= "card">
+    <%= link_to training_path(training) do  %>
+      <h3><%= training.title %></h1>
+      <% end %>
+      <% training.blocs.each do |bloc| %>
+        <div class="bloc">
+          <div class="bloc-quantity">
+            <%= bloc.quantity %>
+          </div>
 
-<%= link_to "about us", about_path %>
+          <div class="lines">
+            <% bloc.lines.each do |line| %>
+              <p>
+                <%= line.quantity %>
+                <%= line.meters %>
+              </p>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+       <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </div>
+
+  <% end %>
+  </div>
+
+  <%= link_to "New training", new_training_path %>
+  <%= link_to "about us", about_path %>
+
+</div>

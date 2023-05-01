@@ -1,0 +1,16 @@
+<h2><%= @training.title %></h2>
+
+<% @training.blocs.each do |bloc| %>
+  <%= bloc.quantity %>
+  <% bloc.lines.each do |line| %>
+    <%= line.quantity %>
+    <%= line.meters %>
+  <% end %>
+<% end %>
+
+
+<h4>Add blocs</h4>
+<%= simple_form_for [@training, @bloc] do |f| %>
+  <%= f.input :quantity %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
