@@ -6,9 +6,12 @@
     <%= f.input :title %>
     <%= f.input :date %>
     <h3>Blocs</h3>
+
     <div id="blocs">
     <%= f.simple_fields_for :blocs do |bloc| %>
+    <div class="bloc-form">
     <%= render "bloc_fields", f: bloc %>
+    </div>
     <% end %>
     <div class="links">
     <%= link_to_add_association "Add Bloc", f, :blocs %>

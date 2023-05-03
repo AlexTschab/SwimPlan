@@ -1,5 +1,5 @@
 class TrainingsController < ApplicationController
-  before_action :set_training, only: %i[ show edit update destroy ]
+  before_action :set_training, only: %i[show edit update destroy]
 
   def index
     @trainings = Training.all
@@ -12,8 +12,8 @@ class TrainingsController < ApplicationController
 
   def new
     @training = Training.new
-    @training.blocs.build
-    # @training.blocs.build.lines.build
+    #@training.blocs.build
+    @training.blocs.build.lines.build
   end
 
   def create
@@ -24,14 +24,13 @@ class TrainingsController < ApplicationController
   end
 
   def edit
+    @training = Training.find(params[:id])
+    @training.blocs.build.lines.build
   end
 
   def update
-    if @training.update(training_params)
-      redirect_to trainings_path
-    else
-      render :edit
-    end
+    @training.update(training_params)
+    redirect_to trainings_path
   end
 
   def destroy
