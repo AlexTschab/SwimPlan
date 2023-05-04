@@ -4,7 +4,10 @@
   <%= bloc.quantity %>
   <% bloc.lines.each do |line| %>
     <%= line.quantity %>
-    <%= line.meters %>
+    <%= line.distance %>
+    <%= line.exercise %>
+    <%= line.start_time %>
+
   <% end %>
 <% end %>
 

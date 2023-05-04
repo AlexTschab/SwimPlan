@@ -18,23 +18,25 @@
 
           <div class="lines">
             <% bloc.lines.each do |line| %>
-              <p>
+
                 <%= line.quantity %>
-                <%= line.meters %>
-              </p>
+                <%= line.distance %>
+                <%= line.start_time %>
+                <%= line.exercise %>
+  <br>
             <% end %>
           </div>
 
         </div>
       <% end %>
-       <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
        <%= link_to "Edit Training", edit_training_path(training) %>
+       <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </div>
-
-  <% end %>
   </div>
-
+  <% end %>
+<br>
   <%= link_to "New training", new_training_path %>
+  <br>
   <%= link_to "about us", about_path %>
 
 </div>

@@ -1,6 +1,6 @@
 <h1>Editing project</h1>
 
-<%= simple_form_for(@training) do |f| %>
+<%= simple_form_for(@training, :method => 'patch') do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -10,39 +10,38 @@
 
   <div id="blocs">
     <%= f.simple_fields_for :blocs do |bloc| %>
-      <div class="bloc-form">
+      <% # Use `bloc.object.id` to get the ID of the existing bloc %>
+      <div class="bloc-form" id="bloc_<%= bloc.object.id %>">
         <div class="bloc-field">
           <%= bloc.input :quantity %>
         </div>
         <div class="line-fields">
           <h3>Lines</h3>
           <%= bloc.simple_fields_for :lines do |line| %>
-            <div class="nested-fields">
+            <% # Use `line.object.id` to get the ID of the existing line %>
+            <div class="nested-fields" id="line_<%= line.object.id %>">
               <%= line.input :quantity%>
-              <%= line.input :meters %>
+              <%= line.input :distance %>
+              <%= line.input :exercise %>
+              <%= line.input :start_time %>
+              <%= link_to_remove_association "Remove Line", line %>
             </div>
-            <%= link_to_remove_association "Remove Line", line %>
           <% end %>
         </div>
         <div class="links">
-          <%= link_to_add_association "Add Line", bloc, :lines %>
+          <%= link_to_add_association "Add Line", bloc, :lines  %>
         </div>
       </div>
-    </div>
-    <%= link_to_remove_association "Remove Bloc", bloc %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-    <div class="links">
-      <%= link_to_add_association "Add Bloc", f, :blocs %>
-    </div>
+  <div class="links">
+    <%= link_to_add_association "Add Bloc", f, :blocs  %>
+  </div>
 
-
-<div class="form-actions">
-  <%= f.button :submit %>
-</div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>
 
-
-<%= link_to "Show this project", @training %> |
-<%= link_to "Back to projects", trainings_path %>
+<%= link_to "Back to trainings", trainings_path %>

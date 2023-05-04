@@ -13,7 +13,7 @@ class TrainingsController < ApplicationController
   def new
     @training = Training.new
     #@training.blocs.build
-    @training.blocs.build.lines.build
+    # @training.blocs.build.lines.build
   end
 
   def create
@@ -25,12 +25,13 @@ class TrainingsController < ApplicationController
 
   def edit
     @training = Training.find(params[:id])
-    @training.blocs.build.lines.build
+    #@training.blocs.build.lines.build
+
   end
 
   def update
     @training.update(training_params)
-    redirect_to trainings_path
+    redirect_to root_path
   end
 
   def destroy
@@ -45,6 +46,6 @@ class TrainingsController < ApplicationController
   end
 
   def training_params
-    params.require(:training).permit(:title, :date, :content, blocs_attributes: [:id, :_destroy, :quantity,  lines_attributes: [:quantity, :meters, :start_time]])
+    params.require(:training).permit(:title, :date, :content, blocs_attributes: [:id, :_destroy, :quantity, lines_attributes: [:id, :_destroy, :quantity, :meters, :exercise, :distance, :start_time]])
   end
 end
