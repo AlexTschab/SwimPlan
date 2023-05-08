@@ -6,7 +6,10 @@
   <% @trainings.each do |training| %>
     <div class= "card">
     <%= link_to training_path(training) do  %>
-      <h3><%= training.title %></h1>
+      <div class="card-title">
+      <h3><%= training.title %></h3>
+      <h4><%= training.date %></h4>
+      </div>
       <% end %>
       <% training.blocs.each do |bloc| %>
         <div class="bloc">
@@ -33,8 +36,10 @@
 
         </div>
       <% end %>
-      <%= link_to "Edit this training", edit_training_path(training) %>
+      <div class="edit-link">
+      <%= link_to "Edit this training", edit_training_path(training) %> <br>
        <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+       </div>
     </div>
 
   <% end %>
