@@ -26,11 +26,13 @@
                 <br>
                 <%= line.exercise %>
                 </div>
-                <div class = "line-right">Start:
+                <div class = "line-right">
+                <% if line.start_time? %>
+                Start:
                 <%= line.start_time %>
+                <% end %>
                 </div>
                 </div>
-              <br>
             <% end %>
           </div>
 
@@ -39,7 +41,11 @@
       <div class="edit-link">
       <%= link_to "Edit this training", edit_training_path(training) %> <br>
        <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-       </div>
+      </div>
+
+      <div class="star">
+      <i class="fa-regular fa-star fa-2xl"></i>
+      </div>
     </div>
 
   <% end %>
