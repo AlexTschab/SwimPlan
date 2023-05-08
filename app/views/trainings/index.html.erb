@@ -16,12 +16,18 @@
 
           <div class="lines">
             <% bloc.lines.each do |line| %>
-              <p>
+              <div class="line">
+              <div class = "line-left">
                 <%= line.quantity %>
                 <%= line.distance %>
+                <br>
                 <%= line.exercise %>
+                </div>
+                <div class = "line-right">Start:
                 <%= line.start_time %>
-              </p>
+                </div>
+                </div>
+              <br>
             <% end %>
           </div>
 

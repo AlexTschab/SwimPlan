@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>SwimPlan</h1>
+  <h1>SwimPlanAA</h1>
   <p>Get your daily swim training</p>
 
   <div class="cards">
@@ -18,12 +18,18 @@
 
           <div class="lines">
             <% bloc.lines.each do |line| %>
+              <div class= "line">
+                <div>
+                  <%= line.quantity %> <br>
+                  <%= line.distance %>
+                  <%= line.exercise %>
 
-                <%= line.quantity %>
-                <%= line.distance %>
+                </div>
+                <div>
                 <%= line.start_time %>
-                <%= line.exercise %>
-  <br>
+                </div>
+                </div>
+               <br>
             <% end %>
           </div>
 
