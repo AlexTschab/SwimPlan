@@ -3,6 +3,7 @@ class TrainingsController < ApplicationController
 
   def index
     @trainings = Training.all
+    @favorites = current_user.trainings
   end
 
   def show

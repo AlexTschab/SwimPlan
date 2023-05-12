@@ -43,9 +43,14 @@
        <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
 
-      <div class="star">
-      <i class="fa-regular fa-star fa-2xl"></i>
+      <div class="star" data-controller="favorite">
+        <% if @favorites.include? training %>
+          <i class="fa-solid fa-star fa-2xl" style="color: #f0ea38;"></i>
+        <% else %>
+          <i class="fa-regular fa-star fa-2xl"></i>
+        <% end %>
       </div>
+
     </div>
 
   <% end %>
