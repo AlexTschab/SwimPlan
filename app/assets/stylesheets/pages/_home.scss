@@ -37,7 +37,7 @@
   .star {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    right: 10px;
   }
 }
 
@@ -81,11 +81,25 @@ a:link{
   text-align: center;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: blue;
+  text-align: center;
+}
+
 // Css for phone screen
 @media (max-width: 768px) {
   /* adjust size for screens smaller than 768px */
   .card {
     width: 250px;
     height: 350px;
+  }
+
+  .footer {
+    display: none;
   }
 }
