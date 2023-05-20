@@ -10,3 +10,82 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar {
+  background-color: #343a40; /* Set the background color */
+  padding: 10px 20px;
+}
+
+.navbar-brand {
+  color: #ffffff; /* Set the brand color */
+  font-size: 24px;
+}
+
+.nav-link {
+  color: #ffffff; /* Set the link color */
+  margin-left: 10px; /* Adjust the spacing between links */
+  font-size: 18px; /* Set the font size for links */
+  text-decoration: none; /* Remove the default underline */
+}
+
+.nav-link:hover {
+  color: #f8f9fa; /* Set the link color on hover */
+}
+
+.navbar-toggler {
+  border: none; /* Remove the border around the toggler */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Set the color for the toggler icon */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  min-width: 150px;
+  background-color: #f8f9fa; /* Set the dropdown menu background color */
+}
+
+.dropdown-item {
+  color: #343a40; /* Set the dropdown item color */
+}
+
+.dropdown-item:hover {
+  background-color: #007bff; /* Set the dropdown item background color on hover */
+  color: #fff; /* Set the dropdown item color on hover */
+}
+
+
+.dropdown-item:hover {
+  background-color: #E86A33; /* Set the dropdown item background color on hover */
+  color: #fff; /* Set the dropdown item color on hover */
+}
+
+.dropdown-menu:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-bottom-color: #72767b; /* Set the color to match the background */
+}
+
+.dropdown-menu:after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-bottom-color: #f8f9fa; /* Set the color to match the background */
+}
+
+.dropdown-toggle::after {
+  display: none; /* Hide the default dropdown toggle arrow */
+}
