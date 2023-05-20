@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-h">
   <h1>SwimPlanAA</h1>
   <p>Get your daily swim training</p>
 
@@ -35,14 +35,14 @@
 
         </div>
       <% end %>
-       <%= link_to "Edit Training", edit_training_path(training) %>
-       <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+       <%= link_to "Edit Training", edit_training_path(training), class:"button-edit" %>
+       <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button-delete" %>
     </div>
   </div>
   <% end %>
-<br>
-  <%= link_to "New training", new_training_path %>
   <br>
-  <%= link_to "about us", about_path %>
+    <%= link_to "New training", new_training_path %>
+    <br>
+    <%= link_to "about us", about_path %>
 
 </div>
