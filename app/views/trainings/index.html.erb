@@ -39,15 +39,17 @@
         </div>
       <% end %>
       <div class="edit-link">
-      <%= link_to "Edit this training", edit_training_path(training) %> <br>
+      <%= link_to "Edit this training", edit_training_path(training) %>
+
+      <br>
        <%= link_to "Delete", training_path(training), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
 
       <div class="star btn" data-controller="favorite" data-action="click->favorite#toggle" >
         <% if @favorites.include? training %>
-          <i class="fa-solid fa-star fa-2xl yellow-star" data-favorite-target="star"></i>A
+          <i class="fa-solid fa-star fa-2xl yellow-star" data-favorite-target="star"></i>
         <% else %>
-          <i class="fa-regular fa-star fa-2xl"></i>B
+          <i class="fa-regular fa-star fa-2xl" data-favorite-target="star"></i>
         <% end %>
       </div>
 

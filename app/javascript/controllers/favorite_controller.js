@@ -9,9 +9,26 @@ export default class extends Controller {
 
   toggle() {
     console.log("clicked on star")
+    const star = this.starTarget;
 
-    this.starTarget.classList.toggle("fa-2xl")
-    console.log(this.starTarget.innerhtml)
+    if (star.classList.contains("fa-regular")) {
+      console.log("ok");
+    }
 
+    this.starTarget.classList.toggle("yellow-star");
+    this.starTarget.classList.toggle("fa-regular");
+    this.starTarget.classList.toggle("fa-solid");
+
+    console.log(this.starTarget)
+
+  }
+
+  addFavorite() {
+    console.log("not fav");
+
+  }
+
+  removeFavorite() {
+    console.log("fav");
   }
 }
