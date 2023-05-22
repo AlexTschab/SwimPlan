@@ -50,7 +50,7 @@
        <% end %>
       </div>
 
-      <div class="star btn" data-controller="favorite" data-action="click->favorite#toggle" >
+      <div class="star btn" data-controller="favorite" data-training-id="<%= training.id %>" data-action="click->favorite#toggle" >
         <% if @favorites.include? training %>
           <i class="fa-solid fa-star fa-2xl yellow-star" data-favorite-target="star"></i>
         <% else %>
