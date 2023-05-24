@@ -1,0 +1,48 @@
+<%= @user.email %> <br>
+
+ <div class="cards">
+  <% @favorites.each do |favorite| %>
+    <% training = favorite.training %>
+    <div class= "card">
+      <div class="card-title">
+        <h4><%= training.title %></h4>
+        <h6><%= training.date %></h6>
+      </div>
+
+      <% training.blocs.each do |bloc| %>
+        <div class="bloc">
+          <div class="bloc-quantity">
+            <%= bloc.quantity %>x
+          </div>
+
+          <div class="lines">
+            <% bloc.lines.each do |line| %>
+              <div class="line">
+              <div class = "line-left">
+                <%= line.quantity %>x
+                <%= line.distance %>
+                <%= line.exercise %>
+                </div>
+                <div class = "line-right">
+                <% if line.start_time? %>
+                Start:
+                <%= line.start_time %>
+                <% end %>
+                </div>
+                </div>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+
+      <div class="star btn" data-controller="favorite" data-training-id="<%= training.id %>" data-action="click->favorite#toggle" >
+          <i class="fa-solid fa-star fa-2xl yellow-star" data-favorite-target="star" data-training-id="<%= training.id %>" ></i>
+      </div>
+
+
+    </div>
+  <% end %>
+
+
+</div>
