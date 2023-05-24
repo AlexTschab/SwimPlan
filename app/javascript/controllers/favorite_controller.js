@@ -1,37 +1,64 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="favorite"
 export default class extends Controller {
-  static targets = [ "star"]
+  static targets = ["star"]
 
   toggle() {
-    console.log("clicked on star")
     const star = this.starTarget;
 
     if (star.classList.contains("fa-regular")) {
       this.addFavorite();
-    }
-    else {
+    } else {
       this.removeFavorite();
     }
 
-    this.starTarget.classList.toggle("yellow-star");
-    this.starTarget.classList.toggle("fa-regular");
-    this.starTarget.classList.toggle("fa-solid");
-
-    console.log(this.starTarget)
+    star.classList.toggle("yellow-star");
+    star.classList.toggle("fa-regular");
+    star.classList.toggle("fa-solid");
   }
 
   addFavorite() {
-    console.log("not fav");
-    const trainingId = this.data.get("trainingId"); // Retrieve the training ID from data attribute
-    console.log(trainingId);
+    const trainingId = this.starTarget.dataset.trainingId;
+    const currentUserId = this.starTarget.dataset.currentUserId;
 
-    // Add your logic to add the favorite here
+    const payload = {
+      favorite: {
+        user_id: currentUserId,
+        training_id: trainingId
+      }
+    };
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    fetch("/favorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": csrfToken
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(response => response.json())
   }
 
   removeFavorite() {
-    console.log("fav");
-    // Add your logic to remove the favorite here
+    const favoriteId = this.starTarget.dataset.favoriteId;
+
+    fetch(`/favorites/${favoriteId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === "removed") {
+          console.log("Training removed from favorites");
+        }
+      })
+      .catch(error => {
+        console.error("Error removing training from favorites:", error);
+      });
   }
 }
