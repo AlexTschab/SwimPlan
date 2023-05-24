@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
 
   resources :favorites
+  resources :users, only: [:show, :edit, :update]
+
 
   resources :trainings, only: [:show, :index, :new, :create, :destroy, :edit, :update] do
     resources :blocs, only: [:show, :index, :new, :create] do
