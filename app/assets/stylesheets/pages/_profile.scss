@@ -1,0 +1,46 @@
+
+// Mobile design
+.user-form {
+  width: 90%;
+}
+
+.profile-container{
+  background-color: #6f93c0;
+  height: 100%;
+
+}
+
+
+.user-info {
+  width:50%;
+  padding-left: 30px;
+}
+
+.training-info {
+  width:50%;
+}
+
+.right-save {
+  display: flex;
+  align-items: center;
+}
+
+.custom-save-button {
+  margin-top: 18px;
+  margin-left: 5px;
+  border: 2px dashed gray;
+}
+
+// Large screen design
+@media (min-width: 768px) {
+
+  .user-form {
+    width: 35%;
+  }
+
+  .user-container{
+    margin-left: 20px;
+    margin-right:20px;
+    display: flex;
+  }
+}
