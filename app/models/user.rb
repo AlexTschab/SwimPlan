@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :trainings, through: :favorites
 
   has_one_attached :photo
+
+  validates :email, presence: true
 end

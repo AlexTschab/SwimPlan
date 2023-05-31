@@ -1,3 +1,14 @@
-<h1>Our first view 🚀</h1>
 
-<%= link_to "Home", root_path %>
+<div class="wrapper">
+  <i class="fa-solid fa-angle-left"></i>
+  <div class="cards2">
+    <% @trainings = Training.all %>
+    <% @trainings.each do |t | %>
+      <div class="test2">
+      <%= t.title %>
+      </div>
+    <% end %>
+
+  <%# </div>
+    <i class="fa-solid fa-angle-right"></i>
+</div> %>

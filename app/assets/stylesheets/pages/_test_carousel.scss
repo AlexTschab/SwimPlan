@@ -1,0 +1,47 @@
+.wrapper {
+  max-width: 95%;
+  overflow-x: auto;
+}
+
+.cards2 {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.cards2 .test2 {
+  flex: 0 0 calc(100% / 3);
+  height: 200px;
+  background-color: blue;
+  margin-left: 40px;
+  scroll-snap-align: start;
+}
+
+.cards2 .test2:nth-child(2) {
+  background-color: red;
+  transform: scale(1.1);
+}
+
+.cards2 .test2:first-child {
+  margin-left: 0px;
+}
+
+.cards2::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.cards2::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cards2::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 2.5px;
+}
+
+.cards2::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}
