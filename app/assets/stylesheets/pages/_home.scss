@@ -31,18 +31,20 @@ margin-left: 5px;
 .cards {
   display: flex;
   align-items: center;
-  scroll-snap-type: x mandatory;
+  // scroll-snap-type: x mandatory;
+  // scroll-padding-left: 0;
+  // scroll-snap-stop: always;
 
   padding-bottom: 20px;
-  padding-left: 5%;
+  // padding-left: 5%;
   padding-right: 5%;
   overflow-x: auto;
 }
 
 .cards .card {
-  flex: 0 0 calc(100% / 3);
+  flex: 0 0 calc((100% - 70px) / 3);
   height: 500px;
-  margin-left: 40px;
+  margin-left: 43px;
   scroll-snap-align: start;
   position: relative;
   background-color: #A5B5BF;
@@ -94,6 +96,10 @@ margin-left: 5px;
   }
 }
 
+.cards .card:first-child {
+  margin-left: 0px;
+}
+
 .cards .arrow-icon {
   position: absolute;
   top: 50%;
@@ -112,7 +118,7 @@ margin-left: 5px;
 }
 
 .cards .right-arrow {
-  right: 30px;
+  right: 40px;
 }
 
 .cards::-webkit-scrollbar {
