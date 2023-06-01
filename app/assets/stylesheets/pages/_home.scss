@@ -2,11 +2,13 @@
 .index {
   //background-color: #6f93c0;
   background: radial-gradient(circle, #3381ee, #81aee2);
-  ;
+  // background: radial-gradient(circle, #4877b8, #2c67aa);
 }
 
 .container {
   background-color: none;
+  padding: 0;
+  position: relative; /* Add this line */
 }
 
 .navbar {
@@ -27,119 +29,109 @@ margin-left: 5px;
 .container-title {
   text-align: center;
 }
+.cards .card {
+  box-sizing: border-box;
+}
+
+.cards {
+  box-sizing: border-box;
+}
 
 .cards {
   display: flex;
   align-items: center;
-  // scroll-snap-type: x mandatory;
-  // scroll-padding-left: 0;
-  // scroll-snap-stop: always;
-
   padding-bottom: 20px;
-  // padding-left: 5%;
-  padding-right: 5%;
   overflow-x: auto;
+  // position: relative; /* Add this line */
 }
 
+
 .cards .card {
-  flex: 0 0 calc((100% - 70px) / 3);
+  flex: 0 0 calc((100% / 3) - 3.35%);
   height: 500px;
-  margin-left: 43px;
+  margin-left: 3%;
   scroll-snap-align: start;
   position: relative;
   background-color: #A5B5BF;
+  // #ebeb40fc test color for card , more yellow instead of gray
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  // text-align: center;
   font-size: 15px;
   text-transform: uppercase;
   border-radius: 29% 28% 33% 17% / 15% 0% 22% 1%;
+}
 
-  .card-title{
-    padding-right: 5px;
-    padding-left: 40px;
-    padding-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #1658d2;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
+.cards .card.first-card{
+  margin-left: 3%;
+  background-color: yellow !important;
+}
 
 
-  .edit-link {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-
-  .card .button-edit,
-  .card .button-delete {
-  display: inline-block;
-  padding: 8px 12px;
-  background-color: #ff4081;
-  color: #fff;
-  border: none;
+.card {
+.card-title{
+  padding-right: 5px;
+  padding-left: 40px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #1658d2;
   border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-  }
-
-  .star {
-    position: absolute;
-    bottom: 25px;
-    right: 20px;
-  }
+  margin-bottom: 10px;
 }
 
-.cards .card:first-child {
-  margin-left: 0px;
+
+.edit-link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
+
+.card .button-edit,
+.card .button-delete {
+display: inline-block;
+padding: 8px 12px;
+background-color: #ff4081;
+color: #fff;
+border: none;
+border-radius: 5px;
+text-decoration: none;
+font-weight: bold;
+text-transform: uppercase;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin-top: 10px;
+}
+
+.star {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+}
+}
+
 
 .cards .arrow-icon {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   font-size: 24px;
-  color: white;
+  // color: white;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 4px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
 }
 
 .cards .left-arrow {
-  left: 30px;
+  left: 1%; /* Position at the left edge */
+
 }
 
 .cards .right-arrow {
-  right: 40px;
+  right: -1%; /* Position at the right edge */
+
 }
 
-.cards::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background-color: transparent; /* Set the background color of the scrollbar to transparent */
-}
-
-.cards::-webkit-scrollbar-track {
-  background: transparent; /* Set the background color of the scrollbar track to transparent */
-}
-// if we want the scrollbar back, uncomment the following lines
-
-// .cards::-webkit-scrollbar-thumb {
-//   background: rgba(255, 255, 255, 0.3); /* Set the background color of the scrollbar thumb to almost transparent white */
-//   border-radius: 2.5px;
-// }
-
-.cards::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5); /* Set the background color of the scrollbar thumb on hover to a slightly more visible color */
-}
 
 
 .yellow-star{
@@ -179,6 +171,26 @@ margin-left: 5px;
 
 a:link{
   text-decoration: none;
+}
+
+.cards::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: transparent; /* Set the background color of the scrollbar to transparent */
+}
+
+.cards::-webkit-scrollbar-track {
+  background: transparent; /* Set the background color of the scrollbar track to transparent */
+}
+// if we want the scrollbar back, uncomment the following lines
+
+// .cards::-webkit-scrollbar-thumb {
+//   background: rgba(255, 255, 255, 0.3); /* Set the background color of the scrollbar thumb to almost transparent white */
+//   border-radius: 2.5px;
+// }
+
+.cards::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5); /* Set the background color of the scrollbar thumb on hover to a slightly more visible color */
 }
 
 .container-footer {

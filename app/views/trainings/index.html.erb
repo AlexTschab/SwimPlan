@@ -9,8 +9,12 @@
       <div>
         <i class="fa-solid fa-angle-left arrow-icon left-arrow" data-action="click->scroll#scrollLeft"></i>
       </div>
-      <% @trainings.each do |training| %>
-        <div class="card" data-controller="workout">
+      <% @trainings.each_with_index do |training, index| %>
+        <% if index == 0 %>
+          <div class="card first-card" data-controller="workout">
+        <% else %>
+          <div class="card" data-controller="workout">
+       <% end %>
           <%= link_to training_path(training) do %>
             <div class="card-title">
               <h4><%= training.title %></h4>
