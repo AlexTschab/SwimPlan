@@ -5,9 +5,9 @@
       <p>Get your daily swim training</p>
     </div>
 
-    <div class="cards">
+    <div class="cards" data-controller="scroll" data-scroll-target="cards">
       <div>
-        <i class="fa-solid fa-angle-left arrow-icon left-arrow"></i>
+        <i class="fa-solid fa-angle-left arrow-icon left-arrow" data-action="click->scroll#scrollLeft"></i>
       </div>
       <% @trainings.each do |training| %>
         <div class="card" data-controller="workout">
@@ -66,9 +66,9 @@
           </div>
         </div>
       <% end %>
-    <div>
-      <i class="fa-solid fa-angle-right arrow-icon right-arrow"></i>
-    </div>
+      <div>
+        <i class="fa-solid fa-angle-right arrow-icon right-arrow" data-action="click->scroll#scrollRight"></i>
+      </div>
     </div>
 
     <div class="container-footer">
