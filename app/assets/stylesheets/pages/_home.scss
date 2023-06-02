@@ -158,23 +158,6 @@ a:link{
   background: rgba(255, 255, 255, 0.5); /* Set the background color of the scrollbar thumb on hover to a slightly more visible color */
 }
 
-.container-footer {
-  text-align: center;
-}
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #787878;
-  color: blue;
-  text-align: center;
-
-  a{
-    color: black;
-  }
-}
 
 // Css for phone screen
 @media (max-width: 768px) {

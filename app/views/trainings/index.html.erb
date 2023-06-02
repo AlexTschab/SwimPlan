@@ -79,11 +79,25 @@
       <br>
       <%= link_to "New training", new_training_path %>
       <br>
-      <i class="fa-thin fa-map-location-dot"></i>
+
     </div>
   </div>
 
   <div class="footer">
+    <div class="link-home">
+    <%= link_to "Home", "#" %>
+    </div>
+    <div class="about">
     <%= link_to "About us", about_path %>
+    </div>
+    <div class="find-pools">
+    <%= link_to "#" do  %>
+     <i class="fa-solid fa-location-arrow fa-xl"></i> Find pools
+     <% end %>
+     </div>
+
+     <div class="link-settings">
+    <%= link_to "Settings", "#" %>
+    </div>
   </div>
 </body>
