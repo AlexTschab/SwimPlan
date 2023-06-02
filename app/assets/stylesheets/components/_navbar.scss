@@ -89,3 +89,17 @@
 .dropdown-toggle::after {
   display: none; /* Hide the default dropdown toggle arrow */
 }
+
+.navbar {
+  background-color: #787878;
+}
+.navbar-nav{
+  align-items: center;
+}
+.dropdown {
+margin-left: 5px;
+}
+
+.nav-link {
+  margin-left:0px;
+}

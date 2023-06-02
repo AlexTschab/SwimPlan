@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-.index {
+.index-page {
   //background-color: #6f93c0;
   background: radial-gradient(circle, #3381ee, #81aee2);
   // background: radial-gradient(circle, #4877b8, #2c67aa);
@@ -8,7 +8,7 @@
 .container {
   background-color: none;
   padding: 0;
-  position: relative; /* Add this line */
+  position: relative; // in order to position the right and left arrows
 }
 
 .navbar {
@@ -60,10 +60,11 @@ margin-left: 5px;
   border-radius: 29% 28% 33% 17% / 15% 0% 22% 1%;
 }
 
-.cards .card.first-card{
-  margin-left: 3%;
-  background-color: yellow !important;
-}
+// in case need to change the margin of first card
+// .cards .card.first-card{
+//   margin-left: 3%;
+//   background-color: yellow !important;
+// }
 
 
 .card {
@@ -101,43 +102,7 @@ cursor: pointer;
 transition: background-color 0.3s ease;
 margin-top: 10px;
 }
-
-.star {
-  position: absolute;
-  bottom: 25px;
-  right: 20px;
 }
-}
-
-
-.cards .arrow-icon {
-  position: absolute;
-  top: 50%;
-  font-size: 24px;
-  // color: white;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 4px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.cards .left-arrow {
-  left: 1%; /* Position at the left edge */
-
-}
-
-.cards .right-arrow {
-  right: -1%; /* Position at the right edge */
-
-}
-
-
-
-.yellow-star{
-  color: yellow;
-}
-
 
 .bloc {
   display: flex;
