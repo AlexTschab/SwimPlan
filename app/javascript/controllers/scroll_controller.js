@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["cards"];
 
   connect() {
-    console.log("Hello World!2");
+    console.log("Hello World!3");
     this.updateScrollButtons();
   }
 
@@ -12,27 +12,31 @@ export default class extends Controller {
     console.log("Hello from left scroll click");
     const cardWidth = this.getCardWidth();
     this.cardsTarget.scrollLeft -= cardWidth;
-    this.updateScrollButtons();
+    // this.updateScrollButtons();
   }
 
   scrollRight() {
     console.log("Hello from right scroll click");
     const cardWidth = this.getCardWidth();
     this.cardsTarget.scrollLeft += cardWidth;
-    this.updateScrollButtons();
+    // this.updateScrollButtons();
   }
 
   getCardWidth() {
-    console.log("start getCardWidth Function")
     const cardElement = this.cardsTarget.querySelector('.card');
-    console.log(cardElement);
-
     const cardStyle = window.getComputedStyle(cardElement);
-    const cardWidth = cardElement.offsetWidth
+
+    //console.log(cardStyle.width);
+    console.log(cardStyle.marginRight);
+    console.log(cardStyle.marginLeft);
+    console.log(parseFloat(cardStyle.width) + parseFloat(cardStyle.marginLeft));
+    const cardWidth =
+        parseFloat(cardStyle.width)
       + parseFloat(cardStyle.marginRight)
       + parseFloat(cardStyle.marginLeft)
       + parseFloat(cardStyle.paddingRight)
       + parseFloat(cardStyle.paddingLeft);
+      console.log(cardWidth)
     return cardWidth;
   }
 
