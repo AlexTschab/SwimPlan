@@ -12,7 +12,10 @@ export default class extends Controller {
     const cardWidth = this.getCardWidth();
 
     if (this.updateScrollButtons()[0]) {
-      this.cardsTarget.scrollLeft -= cardWidth;
+      this.cardsTarget.scrollTo({
+        left: this.cardsTarget.scrollLeft - cardWidth,
+        behavior: "smooth"
+      });
     }
     this.updateScrollButtons();
 
@@ -21,7 +24,10 @@ export default class extends Controller {
   scrollRight() {
     const cardWidth = this.getCardWidth();
     if (this.updateScrollButtons()[1]) {
-      this.cardsTarget.scrollLeft += cardWidth;
+      this.cardsTarget.scrollTo({
+        left: this.cardsTarget.scrollLeft + cardWidth,
+        behavior: "smooth"
+      });
     }
     this.updateScrollButtons();
   }
