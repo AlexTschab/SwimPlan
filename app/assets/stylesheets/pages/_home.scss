@@ -73,12 +73,12 @@ margin-left: 5px;
 
 .card {
 .card-title{
-  padding-right: 5px;
-  padding-left: 40px;
-  padding-top: 20px;
+  padding-right: 1%;
+  padding-left: 5%;
+  padding-top: 2%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: #1658d2;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -111,31 +111,44 @@ margin-top: 10px;
 .bloc {
   display: flex;
   border-bottom: #1658d2 1px dashed;
-}
-
-.bloc-quantity{
-  margin-right: 25px;
-  margin-left: 5px;
-  align-self: center;
-}
-
-.lines{
-  justify-content: left;
-}
-
-.line{
-  display:flex;
+  margin-top: 5%;
   align-items: center;
-  margin-top: 10px;
-
-  .line-left {
-    width: 150px;
-  }
-
-  .line-right {
-    width: 60px;
-  }
 }
+
+.bloc-quantity {
+  align-self: center;
+  margin-right: 5%;
+  width: 10%;
+  text-align: center;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+  margin-bottom: 2%;
+}
+
+.line-left {
+  flex-basis: 70%; /* Adjust the value as needed */
+}
+
+.line-right {
+  text-align: left;
+  min-width: 100px; /* Adjust the width as needed */
+}
+
+
+
+
 
 
 a:link{
@@ -166,9 +179,19 @@ a:link{
 // Css for phone screen
 @media (max-width: 768px) {
   /* adjust size for screens smaller than 768px */
+
   .card {
-    width: 280px;
-    height: 400px;
+    flex: 0 0 80% ;
+    height: 500px;
+    margin-left: 3%;
+    scroll-snap-align: start;
+    position: relative;
+    background-color: #A5B5BF;
+    // #ebeb40fc test color for card , more yellow instead of gray
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 29% 28% 33% 17% / 15% 0% 22% 1%;
   }
 
   .footer {
