@@ -3,21 +3,23 @@
   position: absolute;
   top: 50%;
   font-size: 24px;
-  // color: white;
-  background-color: rgba(255, 255, 255, 0.8);
   padding: 4px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  background-color: white;
 }
 
 .cards .left-arrow {
-  left: 1%; /* Position at the left edge */
+  // left: 1%; /* Position at the left edge */
 
 }
 
 .cards .right-arrow {
-  right: -1%; /* Position at the right edge */
+  right: -2%; /* Position at the right edge */
 
 }
 

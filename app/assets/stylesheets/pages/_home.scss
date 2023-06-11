@@ -177,16 +177,20 @@ a:link{
 
 
 // Css for phone screen
-@media (max-width: 768px) {
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
   /* adjust size for screens smaller than 768px */
 
-  .card {
-    flex: 0 0 80% ;
+  .cards .card {
+    flex: 0 0 80%;
     height: 500px;
-    margin-left: 3%;
+    margin-left: 10%;
     scroll-snap-align: start;
     position: relative;
-    background-color: #A5B5BF;
+    // background-color: red; // change color when on the screen
     // #ebeb40fc test color for card , more yellow instead of gray
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 15px;
