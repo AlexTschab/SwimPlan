@@ -2,35 +2,37 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["cards"];
+  leftButton = document.querySelector(".left-arrow");
+  rightButton = document.querySelector(".right-arrow");
 
   connect() {
-    console.log("Hello World!1");
-    console.log(this.updateScrollButtons());
+    console.log("Hello World!15");
+    this.updateButtonVisibility();
   }
 
   scrollLeft() {
     const cardWidth = this.getCardWidth();
-
-    if (this.updateScrollButtons()[0]) {
-      this.cardsTarget.scrollTo({
-        left: this.cardsTarget.scrollLeft - cardWidth,
-        behavior: "smooth"
-      });
-    }
-    this.updateScrollButtons();
-
+    this.cardsTarget.scrollTo({
+      left: this.cardsTarget.scrollLeft - cardWidth,
+      behavior: "smooth"
+    });
+    this.updateButtonVisibility();
   }
 
   scrollRight() {
     const cardWidth = this.getCardWidth();
-    if (this.updateScrollButtons()[1]) {
-      this.cardsTarget.scrollTo({
-        left: this.cardsTarget.scrollLeft + cardWidth,
-        behavior: "smooth"
-      });
-    }
-    this.updateScrollButtons();
+    const maxScrollLeft = this.cardsTarget.scrollWidth - this.cardsTarget.offsetWidth;
+
+    this.cardsTarget.scrollTo({
+      left: this.cardsTarget.scrollLeft + cardWidth,
+      behavior: "smooth"
+    });
+
+    setTimeout(() => {
+      this.updateButtonVisibility(maxScrollLeft);
+    }, 500); // 300 ms to wait before measuring the scroll distance
   }
+
 
   getCardWidth() {
     const cardElement = this.cardsTarget.querySelector('.card');
@@ -45,46 +47,30 @@ export default class extends Controller {
     return cardWidth;
   }
 
-  updateScrollButtons() {
-
+  updateButtonVisibility() {
     const cardWidth = this.getCardWidth();
-    const availableWidth = this.cardsTarget.offsetWidth;
-
-    const scrollWidth = this.cardsTarget.scrollWidth;
-    // scroll width increases as we add trainings, it tells how width the total width with all cards is
     const scrollLeft = this.cardsTarget.scrollLeft;
+    const maxScrollLeft = (Math.floor(this.cardsTarget.scrollWidth / cardWidth) - 5) * cardWidth; // Adjust the factor (e.g., 5) as needed
 
-    // Calculate how much is left to scroll on both sides
-    const remainingScrollLeft = scrollLeft;
-    const remainingScrollRight = scrollWidth - scrollLeft - availableWidth;
+    console.log("scrollLeft:", scrollLeft);
+    console.log("maxScrollLeft:", maxScrollLeft);
 
-    let canScrollLeft = (remainingScrollLeft - cardWidth) > -5
-    let canScrollRight = (remainingScrollRight - cardWidth) > -5 ;
+    if (scrollLeft <= 0) {
+      console.log("Hide left button");
+      this.leftButton.classList.add("hidden");
+    } else {
+      console.log("Show left button");
+      this.leftButton.classList.remove("hidden");
+    }
 
-    const rightButton = document.querySelector(".right-arrow");
-    console.log(rightButton);
-    if (!canScrollRight && !rightButton.classList.contains("hidden")) {
-      rightButton.classList.add("hidden")
-    } else if (canScrollRight && rightButton.classList.contains("hidden")) {
-      rightButton.classList.remove("hidden")
-    };
-
-    const leftButton = document.querySelector(".left-arrow");
-    console.log(leftButton);
-    if (!canScrollLeft && !leftButton.classList.contains("hidden")) {
-      leftButton.classList.add("hidden")
-    }else if (canScrollLeft && leftButton.classList.contains("hidden")) {
-      leftButton.classList.remove("hidden")
-    };
-
-
-
-    return [canScrollLeft,canScrollRight]
-
-
-    // Disable or enable scroll buttons based on scrollability
-
-    //leftButton.disabled = !canScrollLeft;
-    // rightButton.disabled = !canScrollRight;
+    if (scrollLeft >= maxScrollLeft) {
+      console.log("Hide right button");
+      this.rightButton.classList.add("hidden");
+    } else {
+      console.log("Show right button");
+      this.rightButton.classList.remove("hidden");
+    }
   }
+
+
 }
