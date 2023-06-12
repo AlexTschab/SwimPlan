@@ -33,15 +33,13 @@ margin-left: 5px;
   box-sizing: border-box;
 }
 
-.cards {
-  box-sizing: border-box;
-}
 
 .cards {
   display: flex;
   align-items: center;
   padding-bottom: 20px;
   overflow-x: auto;
+  box-sizing: border-box;
   // position: relative; /* Add this line */
 }
 
@@ -66,10 +64,10 @@ margin-left: 5px;
 //   background-color: yellow !important;
 // }
 
-.card .card:last-child{
-  margin-right :3%;
+.cards .card.last-card {
+  margin-right: 11%;
+  background-color: red;
 }
-
 
 .card {
 .card-title{
@@ -182,9 +180,13 @@ a:link{
     background-color: lightblue;
   }
 
-  /* adjust size for screens smaller than 768px */
+  .container {
+    background-color: none;
+    padding-top: 8%;
+  }
 
   .cards .card {
+    margin-top: 8%;
     flex: 0 0 80%;
     height: 500px;
     margin-left: 10%;

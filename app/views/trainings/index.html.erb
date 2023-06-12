@@ -12,6 +12,8 @@
       <% @trainings.each_with_index do |training, index| %>
         <% if index == 0 %>
           <div class="card first-card" data-controller="workout">
+        <% elsif index == @trainings.count - 1 %>
+          <div class="card last-card" data-controller="workout">
         <% else %>
           <div class="card" data-controller="workout">
        <% end %>

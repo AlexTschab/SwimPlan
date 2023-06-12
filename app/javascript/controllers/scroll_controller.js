@@ -6,39 +6,58 @@ export default class extends Controller {
   rightButton = document.querySelector(".right-arrow");
 
   connect() {
-    console.log("Hello World!15");
+    console.log("Hello World!3");
     this.updateButtonVisibility();
   }
 
   scrollLeft() {
     const cardWidth = this.getCardWidth();
-    this.cardsTarget.scrollTo({
-      left: this.cardsTarget.scrollLeft - cardWidth,
-      behavior: "smooth"
-    });
-    this.updateButtonVisibility();
+    const scrollLeft = this.cardsTarget.scrollLeft - cardWidth;
+
+    if (scrollLeft < 0) {
+      this.cardsTarget.scrollTo({
+        left: 0,
+        behavior: "smooth"
+      });
+    } else {
+      this.cardsTarget.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth"
+      });
+    }
+
+    setTimeout(() => {
+      this.updateButtonVisibility();
+    }, 300); // Add a delay of 300ms before updating the button visibility
   }
 
   scrollRight() {
     const cardWidth = this.getCardWidth();
     const maxScrollLeft = this.cardsTarget.scrollWidth - this.cardsTarget.offsetWidth;
+    const scrollLeft = this.cardsTarget.scrollLeft + cardWidth;
 
-    this.cardsTarget.scrollTo({
-      left: this.cardsTarget.scrollLeft + cardWidth,
-      behavior: "smooth"
-    });
+    if (scrollLeft > maxScrollLeft) {
+      this.cardsTarget.scrollTo({
+        left: maxScrollLeft,
+        behavior: "smooth"
+      });
+    } else {
+      this.cardsTarget.scrollTo({
+        left: scrollLeft,
+        behavior: "smooth"
+      });
+    }
 
     setTimeout(() => {
       this.updateButtonVisibility(maxScrollLeft);
-    }, 500); // 300 ms to wait before measuring the scroll distance
+    }, 300); // Add a delay of 300ms before updating the button visibility
   }
-
 
   getCardWidth() {
     const cardElement = this.cardsTarget.querySelector('.card');
     const cardStyle = window.getComputedStyle(cardElement);
     const cardWidth =
-        parseFloat(cardStyle.width)
+      parseFloat(cardStyle.width)
       + parseFloat(cardStyle.marginRight)
       + parseFloat(cardStyle.marginLeft)
       + parseFloat(cardStyle.paddingRight)
@@ -48,14 +67,13 @@ export default class extends Controller {
   }
 
   updateButtonVisibility() {
-    const cardWidth = this.getCardWidth();
     const scrollLeft = this.cardsTarget.scrollLeft;
-    const maxScrollLeft = (Math.floor(this.cardsTarget.scrollWidth / cardWidth) - 5) * cardWidth; // Adjust the factor (e.g., 5) as needed
+    const maxScrollLeft = this.cardsTarget.scrollWidth - this.cardsTarget.offsetWidth;
 
     console.log("scrollLeft:", scrollLeft);
     console.log("maxScrollLeft:", maxScrollLeft);
 
-    if (scrollLeft <= 0) {
+    if (scrollLeft <= this.getCardWidth()/2) {
       console.log("Hide left button");
       this.leftButton.classList.add("hidden");
     } else {
@@ -63,7 +81,7 @@ export default class extends Controller {
       this.leftButton.classList.remove("hidden");
     }
 
-    if (scrollLeft >= maxScrollLeft) {
+    if (maxScrollLeft - scrollLeft <=  this.getCardWidth()/2) {
       console.log("Hide right button");
       this.rightButton.classList.add("hidden");
     } else {
@@ -71,6 +89,4 @@ export default class extends Controller {
       this.rightButton.classList.remove("hidden");
     }
   }
-
-
 }

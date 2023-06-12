@@ -14,7 +14,7 @@
 }
 
 .cards .left-arrow {
-  // left: 1%; /* Position at the left edge */
+  left: 0.3%; /* Position at the left edge */
 
 }
 
@@ -25,4 +25,17 @@
 
 .hidden {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .cards .left-arrow {
+    left: 1%; /* Position at the left edge */
+
+  }
+
+  .cards .right-arrow {
+    right: 1%; /* Position at the right edge */
+
+  }
 }
