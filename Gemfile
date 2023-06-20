@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
 gem "cocoon" # for nested forms
 
+gem "geocoder" # for maps
+
 gem "cloudinary" # for user image
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
