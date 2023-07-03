@@ -1,1 +1,8 @@
 <h4>Map</h4>
+<p>Find pools close to you ! And find other SwimPlan users</p>
+<p>Select a city: </p>
+<div class="map-container"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>

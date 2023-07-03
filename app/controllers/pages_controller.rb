@@ -8,4 +8,14 @@ class PagesController < ApplicationController
   def about
   end
 
+  def map
+    @pools = Pool.all
+    @markers = @pools.geocoded.map do |pool|
+      {
+        lat: pool.latitude,
+        lng: pool.longitude
+      }
+    end
+  end
+
 end
