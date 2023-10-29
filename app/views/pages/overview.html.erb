@@ -1,0 +1,32 @@
+<!-- app/views/your_controller/overview.html.erb -->
+<!-- Example dropdown filters -->
+<div class="filters">
+  <div class="filter">
+    <label for="thematic-filter">Thematic:</label>
+    <select id="thematic-filter">
+      <option value="all">All</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <!-- Add more thematic options as needed -->
+    </select>
+  </div>
+
+  <div class="filter">
+    <label for="stroke-filter">Swim Stroke:</label>
+    <select id="stroke-filter">
+      <option value="all">All</option>
+      <option value="stroke1">Stroke 1</option>
+      <option value="stroke2">Stroke 2</option>
+      <!-- Add more swim stroke options as needed -->
+    </select>
+  </div>
+
+
+
+<div class="overview_card_grid">
+  <% 12.times do %>
+    <div class="overview_card">
+      <!-- Content for each card goes here -->
+    </div>
+  <% end %>
+</div>

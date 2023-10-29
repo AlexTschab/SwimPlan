@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "about", to: "pages#about"
   get "map", to: "pages#map"
+  get "overview", to: "pages#overview"
 
 
   resources :favorites

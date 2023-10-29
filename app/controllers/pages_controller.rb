@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def overview
+  end
+
   def map
     @pools = Pool.all
     @markers = @pools.geocoded.map do |pool|

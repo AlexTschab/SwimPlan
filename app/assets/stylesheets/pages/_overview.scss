@@ -1,0 +1,54 @@
+.overview_card_grid {
+  margin-top: 100px;
+  width: 100%;
+  height: calc(100vh - 20px); /* Adjust the 20px margin */
+  text-align: center; /* Center-align the cards */
+}
+
+/* Adjust the width of each card and set the number of cards per row */
+.overview_card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease-in-out;
+
+  /* Set the width and control the number of cards per row */
+  width: calc(25% - 20px); /* Adjust as needed, 25% for 4 cards per row */
+  margin: 10px; /* Add margin to separate cards */
+  display: inline-block;
+  box-sizing: border-box;
+  height: 100px;
+}
+
+/* Clearfix to handle card alignment */
+.overview_card_grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* CSS for filter components */
+.filters {
+  text-align: center; /* Center-align the filter components */
+  margin-bottom: 20px; /* Add spacing between filters and the card grid */
+}
+
+.filter {
+  display: inline-block;
+  margin-right: 20px; /* Add horizontal spacing between filters */
+}
+
+/* Style labels and select elements */
+label {
+  font-weight: bold;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* You can add more CSS to style the filters further */
